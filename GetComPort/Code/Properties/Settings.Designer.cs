@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GetCOMPort.Properties {
+namespace ShowCOMPort.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -36,7 +36,6 @@
             this.uiTimer = new System.Windows.Forms.Timer(this.components);
             this.updradeTimer = new System.Windows.Forms.Timer(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.checkArduinoTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // listBoxComports
@@ -79,6 +78,7 @@
             // chkOnlyShowArduino
             // 
             this.chkOnlyShowArduino.AutoSize = true;
+            this.chkOnlyShowArduino.Enabled = false;
             this.chkOnlyShowArduino.Location = new System.Drawing.Point(232, 19);
             this.chkOnlyShowArduino.Name = "chkOnlyShowArduino";
             this.chkOnlyShowArduino.Size = new System.Drawing.Size(102, 16);
@@ -96,11 +96,6 @@
             // 
             this.updradeTimer.Interval = 500;
             this.updradeTimer.Tick += new System.EventHandler(this.updradeTimer_Tick);
-            // 
-            // checkArduinoTimer
-            // 
-            this.checkArduinoTimer.Interval = 200;
-            this.checkArduinoTimer.Tick += new System.EventHandler(this.checkArduinoTimer_Tick);
             // 
             // Form1
             // 
@@ -129,7 +124,6 @@
         private System.Windows.Forms.Timer uiTimer;
         private System.Windows.Forms.Timer updradeTimer;
         private System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.Timer checkArduinoTimer;
     }
 }
 

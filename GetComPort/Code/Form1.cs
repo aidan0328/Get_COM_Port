@@ -18,6 +18,7 @@ namespace GetPortnamesExample
     {
         const String MAIN_VER = "0";
         const String SUB_VER = "9";
+        const String SUB_VER2 = "1";
 
         bool listHasUpgrade = false;
         bool autoUpdrade = false;
@@ -124,6 +125,7 @@ namespace GetPortnamesExample
             autoUpdrade = chkAutoUpgrade.Checked;
             updradeTimer.Enabled = chkAutoUpgrade.Checked; ;               
         }
+
         private void upgradeArduinoComPortList()
         {
             existArduinoComPortList.Clear();
@@ -140,6 +142,7 @@ namespace GetPortnamesExample
                 }
             }        
         }
+        
         private void chkOnlyShowArduino_CheckedChanged(object sender, EventArgs e)
         {
             if(chkOnlyShowArduino.Checked == true)
@@ -151,11 +154,17 @@ namespace GetPortnamesExample
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = String.Format("COM PORT 顯示器   v{0}.{1}" ,MAIN_VER ,SUB_VER);
+            if (SUB_VER2.Equals(String.Empty))
+            {
+                this.Text = String.Format("COM PORT 顯示器   v{0}.{1}", MAIN_VER, SUB_VER);
+            }
+            else
+            {
+                this.Text = String.Format("COM PORT 顯示器   v{0}.{1}.{2}", MAIN_VER, SUB_VER, SUB_VER2);
+            }
             autoUpdrade = chkAutoUpgrade.Checked;
             uiTimer.Enabled = true;
             updradeTimer.Enabled = chkAutoUpgrade.Checked;
-            checkArduinoTimer.Enabled = false;
         }
 
         private void uiTimer_Tick(object sender, EventArgs e)
@@ -188,6 +197,7 @@ namespace GetPortnamesExample
                     }
                 }
             }
+            
             if (existComPortList.Count > 0)
                 chkOnlyShowArduino.Visible = true;
             else
@@ -200,11 +210,6 @@ namespace GetPortnamesExample
         private void updradeTimer_Tick(object sender, EventArgs e)
         {
             GetComPortInformation();
-        }
-
-        private void checkArduinoTimer_Tick(object sender, EventArgs e)
-        {
-
         }
     }
 
